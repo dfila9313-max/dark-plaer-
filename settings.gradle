@@ -1,0 +1,2 @@
+rootProject.name = "DarkPlayer"
+include ':app'
