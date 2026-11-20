@@ -1,7 +1,7 @@
 /*
  * ADMINO design tokens — the single source of truth for colour, type and spacing.
  * Components use these variables (through Tailwind theme keys), never raw hex values.
- * Accent options are finalised on the stage 1 mockups.
+ * Accent: deep blue (variant B, chosen 20.11.2026).
  */
 :root {
   /* Colour */
@@ -11,9 +11,9 @@
   --border: #e6e4df;
   --text: #1d1d1f;
   --text-secondary: #6b6a66;
-  --accent: #1f5c4d;
-  --accent-hover: #184a3e;
-  --accent-soft: #e7efec;
+  --accent: #234a6e;
+  --accent-hover: #1b3a57;
+  --accent-soft: #e9eef3;
   --on-accent: #ffffff;
   --success: #2e7d5b;
   --warning: #b7791f;
