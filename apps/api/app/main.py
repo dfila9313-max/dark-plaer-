@@ -8,9 +8,11 @@ from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import get_settings
+from app.core.csrf import register_csrf_protection
 from app.core.db import get_session
 from app.core.errors import register_error_handlers
 from app.core.logging import configure_logging, register_request_logging
+from app.modules.auth.router import router as auth_router
 
 API_PREFIX = "/api/v1"
 
@@ -32,7 +34,8 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    register_request_logging(app)
+    register_csrf_protection(app)
+    register_request_logging(app)  # added last = outermost, so every response has a request id
     register_error_handlers(app)
 
     router = APIRouter(prefix=API_PREFIX)
@@ -42,6 +45,7 @@ def create_app() -> FastAPI:
         await session.execute(text("SELECT 1"))
         return {"status": "ok", "database": "ok"}
 
+    router.include_router(auth_router)
     app.include_router(router)
     return app
 

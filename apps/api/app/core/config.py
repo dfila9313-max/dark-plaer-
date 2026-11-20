@@ -18,6 +18,22 @@ class Settings(BaseSettings):
     cors_origins: list[str] = ["http://localhost:3000"]
     log_level: str = "INFO"
 
+    # Public URL of the web app: used in links sent by email.
+    web_url: str = "http://localhost:3000"
+
+    # Sessions
+    session_cookie: str = "admino_session"
+    session_days: int = 30
+
+    # Email: "smtp" sends via SMTP (Mailpit in development), "memory" keeps an outbox for tests.
+    email_backend: Literal["smtp", "memory"] = "smtp"
+    email_from: str = "ADMINO <no-reply@admino.local>"
+    smtp_host: str = "localhost"
+    smtp_port: int = 1025
+    smtp_user: str | None = None
+    smtp_password: str | None = None
+    smtp_tls: bool = False
+
     @property
     def is_production(self) -> bool:
         return self.environment == "production"
