@@ -1,0 +1,46 @@
+/*
+ * ADMINO design tokens — the single source of truth for colour, type and spacing.
+ * Components use these variables (through Tailwind theme keys), never raw hex values.
+ * Accent options are finalised on the stage 1 mockups.
+ */
+:root {
+  /* Colour */
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --surface-muted: #f0efec;
+  --border: #e6e4df;
+  --text: #1d1d1f;
+  --text-secondary: #6b6a66;
+  --accent: #1f5c4d;
+  --accent-hover: #184a3e;
+  --accent-soft: #e7efec;
+  --on-accent: #ffffff;
+  --success: #2e7d5b;
+  --warning: #b7791f;
+  --danger: #b42318;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Elevation: only for floating layers */
+  --shadow-popover: 0 8px 24px rgb(29 29 31 / 0.08), 0 1px 2px rgb(29 29 31 / 0.06);
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Layout */
+  --sidebar-width: 240px;
+  --sidebar-width-collapsed: 64px;
+  --content-max: 1200px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}
